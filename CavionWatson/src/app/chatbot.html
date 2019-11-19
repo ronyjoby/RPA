@@ -1,0 +1,48 @@
+<ion-header class="chart_header_wrp">
+    <ion-title class="name">FinBot Admin</ion-title>
+    <div class="chat_back" (click)="goHome()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    </div>
+  </ion-header>
+  <ion-content class="chat_wrp">
+    <ion-grid *ngIf="messages" class="chat_cnt_wrp">
+      <ion-row *ngFor="let message of messages">
+          <ion-col col-12 *ngIf="message.question">
+              <div class="user_chat">
+                <p>{{message.question}}</p>
+              </div>
+          </ion-col>
+          <ion-col col-12 *ngIf="message.answer">
+              <div class="admin_chat">
+                <p>{{message.answer}}</p>                         
+              </div>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+<ion-footer class="ios_chat_footer_wrp" showWhen="ios">
+  <form role="form" #chatForm="ngForm" (ngSubmit)="send(chatForm)" >
+    <ion-toolbar>  
+      <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
+        <ion-buttons end>
+        <button ion-button icon-center class="send_button" type="submit">
+        <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</form>
+</ion-footer>
+
+<ion-footer class="android_chat_footer_wrp" showWhen="android">
+  <form role="form" #chatForm="ngForm" (ngSubmit)="send(chatForm)" >
+    <ion-toolbar>    
+      <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
+        <ion-buttons end>
+          <button ion-button icon-center class="send_button" type="submit">
+          <ion-icon name="send"></ion-icon>
+          </button>
+      </ion-buttons>
+    </ion-toolbar>
+</form>
+</ion-footer>

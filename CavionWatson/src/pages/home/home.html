@@ -1,0 +1,26 @@
+<!-- logo -->
+<ion-header class="logo_wrp">
+  <ion-title class="title">DEMO FINBOT</ion-title>
+  <img src="../../assets/imgs/logo.png" alt="FINBOT" />
+</ion-header>
+
+<ion-content>
+  <ion-grid class="home_wrp">
+    <ion-row>
+      <ion-col col-6 text-center (click)="doChat()">
+          <div class="icon_box">
+            <ion-icon ios="ios-chatbubbles" md="md-chatbubbles" class="home_iocns"></ion-icon>
+          </div>
+          <a href="javascript:void(0);">Let's Start Chat</a>
+      </ion-col>
+      <ion-col col-6 text-center (click)="navigateToLogin()">
+          <div class="icon_box">
+            <ion-icon ios="ios-person" md="md-person" class="home_iocns"></ion-icon>
+          </div>
+        <a href="javascript:void(0);">Customer Login</a>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

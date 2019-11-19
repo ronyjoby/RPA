@@ -1,0 +1,43 @@
+<ion-header class="chart_header_wrp">
+
+  <ion-title *ngIf="ticket" class="name">{{ticket.Member}}</ion-title>
+  <div class="chat_back" (click)="goTickets()">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+  </div>
+</ion-header>
+<ion-content *ngIf="ticket" class="outer-content ticket_details_wrp">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        Ticket Number - {{ticket.Ticket_id}} 
+        <ion-icon *ngIf="ticket.Status=='Approved'" ios="ios-checkmark-circle-outline" color="secondary" md="md-checkmark-circle-outline" class="approved"></ion-icon>
+        </ion-card-title>
+        <p class="date"> <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon> {{ticket.Date}}</p>
+      <p>
+       {{ticket.Issue_description}}
+      </p>
+      <p>
+       Product - {{ticket.Product}}
+      </p>      
+      <p>
+       Status - {{ticket.Status}}
+      </p>
+    </ion-card-content>
+    <ion-row class="row" no-padding>
+      <ion-col class="col" text-left *ngIf="ticket.Status!='Approved'">
+            <button ion-button color="secondary" clear (click)="approveTicket(ticket)">
+              <span class="button-inner">
+                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon> Approve
+              </span>
+            </button>
+      </ion-col>
+      <ion-col class="col" text-right>
+            <button ion-button color="danger" clear (click)="deleteTicket(ticket.$key)">
+              <span class="button-inner">
+                <ion-icon ios="ios-trash" md="md-trash"></ion-icon> Delete
+              </span>
+            </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

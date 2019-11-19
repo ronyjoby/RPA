@@ -1,0 +1,37 @@
+<ion-header class="logo_wrp login_wrp">
+    <ion-title class="title">DEMO FINBOT</ion-title>
+    <h2>Customer login</h2>
+
+    <form role="form" #finrouteForm="ngForm" (ngSubmit)="login(finrouteForm)" >
+        <div class="login_box">   
+             <ion-row>
+                <ion-col>
+                    <ion-list inset>   
+                        <ion-item>
+                            <ion-label floating>Username</ion-label>
+                            <ion-input type="text" name="username" id="username" ngModel></ion-input>
+                        </ion-item>
+                         <ion-item>
+                            <ion-label floating>Password</ion-label>
+                            <ion-input type="password" name="password" id="password" ngModel></ion-input>
+                        </ion-item> 
+
+                    </ion-list>
+                </ion-col>
+             </ion-row>
+
+             <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button class="button_custom" type="submit" md>Login</button>
+                </ion-col>
+            </ion-row>
+        </div>       
+    </form>
+
+</ion-header>
+
+<ion-content>
+    <ion-grid class="back_login_wrp">
+        <a href="javascript:void(0)" (click)="goHome()"><ion-icon ios="ios-arrow-back-outline"  md="md-arrow-back" class="back_arrow"></ion-icon> Back To Home Screen</a>
+    </ion-grid>
+</ion-content>

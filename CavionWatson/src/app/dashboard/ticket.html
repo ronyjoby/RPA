@@ -1,0 +1,36 @@
+<ion-header class="chart_header_wrp">
+
+  <ion-title class="name">Epic Tickets</ion-title>
+  <div class="chat_back" (click)="goHome()">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+  </div>
+</ion-header>
+<ion-content class="outer-content epic_wrp">  
+  <ion-list *ngFor="let ticket of tickets | async | reverse">
+    <ion-item-sliding>
+      <ion-item>
+        <h2>{{ticket.Member}} 
+          
+            <ion-icon *ngIf="ticket.Status=='Approved'" ios="ios-checkmark-circle-outline" color="secondary" md="md-checkmark-circle-outline" class="approved"></ion-icon>
+     
+        </h2>     
+        <h3>#{{ticket.Ticket_id}}</h3>
+        <p>{{ticket.Issue_description}}</p>
+      </ion-item>
+      <ion-item-options class="button_opt">
+        <button ion-button color="light" icon-start (click)="goTicketDetails(ticket)">
+                <ion-icon name="ios-more"></ion-icon>
+                More
+              </button>
+        <button *ngIf="ticket.Status!='Approved'" ion-button color="secondary" icon-start>
+                <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle"></ion-icon>
+                Approve
+              </button>
+        <button ion-button color="danger" icon-start (click)="deleteTicket(ticket.$key)">
+                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                Delete
+              </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,459 @@
+@import "variables";
+
+/*Mixins*/
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius; 
+}
+
+@mixin linx ($secondary_color, $primary_color) {
+  a {
+    	color: $secondary_color;
+		text-decoration:none;
+	  	font-size: 13px;
+	  
+    &:hover {
+      	color: $primary_color;   
+		text-decoration:none;
+    }
+    &:active {
+      color: $primary_color;
+    }
+  }
+}
+
+/* Include */
+@include linx($secondary_color, $primary_color);
+
+/* Start */
+h1, h2, h3, h4, h5, h6 {
+	margin:0;
+	padding:0;
+	font-weight:500;
+}
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+p {
+	margin: 0;
+	padding: 0;
+	color:$text_color;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.top_bar {
+	width: 100%;
+	float: left;
+	background: $primary_color;
+	padding: 10px;
+}
+
+/* Common */
+.button_custom {
+	display: inline-block;
+	min-width: 100px;
+	padding: 8px 10px;
+	color: $white;
+	font-size: 13px;
+	background: $button_primary;
+	@include border-radius(3px);
+
+	&.active,&:focus, &:active {
+		background: $button_primary;
+	}
+}
+
+/* Home */
+.logo_wrp {
+	width: 100%;
+	float: left;
+	background: $secondary_color;
+	padding: 50px 15px;
+	text-align: center;
+    position: relative;
+	
+	.toolbar-title {
+		font-size: 35px;
+		color: $white;
+		font-weight: 300;
+		margin-bottom: 15px;
+	}	
+	
+}
+
+.home_wrp {
+	width: 100%;
+	float: left;
+	padding: 50px 15px 0;
+    position: relative;
+	
+	.icon_box {
+		width: 95px;
+		height: 95px;
+		background: $icon_bg;
+		display: inline-block;
+		margin-bottom: 10px;
+		cursor: pointer;
+        position: relative;
+		@include border-radius(50%);
+		box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
+		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+        .home_iocns {
+            font-size: 50px;
+            margin: 20px 0 0;
+        }
+		
+		&:hover {
+			 box-shadow: 0 5px 7px rgba(0,0,0,0.1), 0 5px 7px rgba(0,0,0,0.1);
+
+             .home_iocns {
+                color: $secondary_color;
+             }
+		}
+	}
+	a {
+		width: 100%;
+		display: inline-block;
+		font-size: 15px;
+		color: $text_color;
+		
+		&:hover {
+			color: $secondary_color;
+		}
+	}
+}
+
+
+/* Login */
+.login_wrp {
+	min-height: 270px;
+	position: relative;
+	box-sizing: border-box;
+	padding: 40px 15px;
+	
+	h2 {
+		font-size: 18px;
+		color: $white;
+		font-weight: 300;
+		margin: 5px 0 30px;
+	}
+	
+	.login_box {
+		width: 92%;
+		float: left;
+		background: $white;
+		padding: 0 20px 20px;
+		margin: 0;
+		position: absolute;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+		min-height: 205px;	
+		@include border-radius(3px);
+		
+		.col {
+			padding: 0;
+		}
+		.list {
+			margin: 0;
+			padding: 0;
+			border-bottom: 1px solid $input_border;
+		}		
+		.label  {
+			padding: 0;
+			font-size: 14px;					
+		}
+		.text-input {
+			font-size: 13px;
+			padding: 0;
+		}
+		.button {
+			float: right;
+			width: auto;
+			margin: 15px 0 0;
+		}
+		.button-md {
+			height: 40px;
+		}
+	}
+
+	&:after {
+		background: none;
+	}
+}
+.back_login_wrp {
+	width: 100%;
+	float: left;
+	padding: 15px;
+	text-align: center;
+	
+	a {
+		margin-top: 40%;
+		display: inline-block;
+		font-size: 15px;
+
+		.back_arrow {
+			margin-right: 5px;
+		}
+	}
+}
+
+/* Chart */
+.chart_header_wrp {
+	width: 100%;
+	float: left;
+	background: $secondary_color;
+	padding: 15px;
+	position: relative;
+	text-align: center;
+
+	.toolbar-title {
+		font-size: 16px;
+		color: $white;
+		font-weight: 400;
+	}	
+	.chat_back {
+		position: absolute;
+		font-size: 18px;
+		color: $white;
+		left: 15px;
+		top: 15px;
+	}
+
+	&.header-ios {
+		background: $ios_header_bg;
+		border-bottom: 1px solid $ios_header_border;
+
+		.toolbar-title {
+			color: $ios_title;
+			font-weight: 500;
+			font-size: 20px;
+		}
+		.chat_back {
+			color: $ios_title;
+			font-size: 20px;
+		}
+	}
+}
+.chat_wrp {
+	background: $chat_bg;
+
+	.chat_cnt_wrp {
+		width: 100%;
+		float: left;
+		background: $chat_bg;
+		padding: 10px 20px 65px;
+		overflow-y: scroll;
+
+		.col {
+			padding: 0;
+		}
+
+		.admin_chat {
+			background: $white;
+			@include border-radius(5px);
+			padding: 10px 15px;
+			margin-top: 5px;
+			width: auto;
+			float: left;
+			position: relative;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);		
+
+			&:before {
+				content: "";
+				width: 0px;
+				height: 0px;
+				position: absolute;
+				border-left: 8px solid transparent;
+				border-right: 8px solid $white;
+				border-top: 8px solid $white;
+				border-bottom: 8px solid transparent;
+				left: -9px;
+				top: 0px;				
+			}
+		}
+		.user_chat {	
+			background: $secondary_color;
+			@include border-radius(5px);
+			padding: 10px 15px;
+			margin: 15px 0 5px;
+			width: auto;
+			float: right;	
+			position: relative;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);	
+
+			p {
+				color: $white;
+			}
+			&:before {
+				content: "";
+				width: 0px;
+				height: 0px;
+				position: absolute;
+				border-left: 8px solid $secondary_color;
+				border-right: 8px solid transparent;
+				border-top: 8px solid $secondary_color;
+				border-bottom: 8px solid transparent;
+				right: -9px;
+				top: 1px;			
+			}
+		}
+
+	}
+}
+.ios_chat_footer_wrp {
+	width: 100%;
+	padding: 0 15px;
+
+	.toolbar-ios {
+		padding: 10px 15px;
+	}
+	.text-input {
+		@include border-radius(25px);
+		border: 1px solid $input_border;
+		padding: 10px 15px;
+		font-size: 14px;
+		font-weight: 400;
+		color: $text-color;
+		margin: 0;
+	}
+	&.footer-ios {
+		padding: 0;
+	}
+
+	.send_button {
+		background: $button_primary;
+		color: $white;
+		font-size: 18px;
+		padding: 10px;
+		@include border-radius(50%);
+	}
+}
+
+.android_chat_footer_wrp {
+	width: 100%;
+	padding: 0 5px 0 10px;
+
+	.toolbar-background-md {
+		background: $chat_bg;
+	}
+	.toolbar-md {
+		padding: 10px 0;
+	}
+
+	.text-input {
+		@include border-radius(5px);
+		padding: 12px 15px;
+		font-size: 14px;
+		font-weight: 400;
+		color: $text-color;
+		background: $white;
+		margin: 0;
+		width: 97%;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
+	}
+
+	.send_button {
+		background: $button_primary;
+		color: $white;
+		font-size: 18px;
+		padding: 20px 12px;
+		text-align: center;
+		@include border-radius(50%);
+	}
+
+	&:before {
+		background: none;
+	}
+}
+
+/* Epic */
+.epic_wrp {
+	background: $white;
+
+	.list-ios {
+		margin-bottom: 10px;
+	}
+	.list-header {
+
+		&.list-header-md {
+			margin-bottom: 0;
+		}
+
+		&.list-header-ios {
+			background: $ios_sub_head_bg;
+		}
+	}
+
+	.item-block  {
+		padding-left: 0;
+		.label {
+			padding-left: 16px;
+
+			h2 {
+				font-size: 16px;
+				color: $ios_title;
+				font-weight: 500;
+
+				.approved {
+					font-size: 20px;
+					position: relative;
+					top: 2px;
+					left: 5px; 
+				}
+			}
+			h3 {
+				font-size: 14px;
+				color: $ios_title;
+				font-weight: 500;
+				margin: 5px 0;
+			}
+			p {
+				font-size: 13px;
+			}
+
+			&.label-md {
+				margin: 13px 0 0;
+			}
+		}		
+	}
+
+	.button_opt {
+		.button {
+			font-size: 16px;
+
+			&.button-md {
+				font-size: 13px;
+			}
+		}
+	}
+	
+
+	&.content-ios.outer-content {
+		background: $white;
+	}
+}
+
+/* Ticket Details */
+.ticket_details_wrp {
+	.date {
+		margin: 0 0 10px;
+		font-size: 12px;
+	}
+	.button-inner {
+		.icon {
+			font-size: 20px;
+			margin-right: 5px;
+
+		}
+	}
+}
+
+/* Alert */
+.alert-wrapper .alert-title {
+	font-size: 18px;
+}
